@@ -1,0 +1,5 @@
+[prod_servers]
+linux_ub1 ansible_host=192.168.0.52 ansible_ssh_user=user ansible_ssh_private_key_file=/home/vandrienko/.ssh/id_rsa.pub 
+
+[test_servers]
+linux_ub2 ansible_host=192.168.0.157 ansible_ssh_user=user ansible_ssh_private_key_file=/home/vandrienko/.ssh/id_rsa.pub
