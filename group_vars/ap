@@ -1,0 +1,5 @@
+---
+#[ap:vars]
+ansible_ssh_user : user
+ansible_ssh_private_key_file : /home/vandrienko/.ssh/id_rsa.pub
+#ansible_port=22 # какой порт использовать для подключения по умолчанию 22.
