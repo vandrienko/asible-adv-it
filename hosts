@@ -1,5 +1,19 @@
 [prod_servers]
-linux_ub1 ansible_host=192.168.0.52 ansible_ssh_user=user ansible_ssh_private_key_file=/home/vandrienko/.ssh/id_rsa.pub 
+linux_ub1 ansible_host=192.168.0.52
 
 [test_servers]
-linux_ub2 ansible_host=192.168.0.157 ansible_ssh_user=user ansible_ssh_private_key_file=/home/vandrienko/.ssh/id_rsa.pub
+linux_ub2 ansible_host=192.168.0.157
+
+[ap:children]
+prod_servers
+test_servers
+
+[ap:vars]
+ansible_ssh_user=user #имя пользователя для подключения
+ansible_ssh_private_key_file=~/.ssh/%%r@%%h:%%p # или прямой путь к ключам /home/vandrienko/.ssh/id_rsa.pub
+ansible_port=22 # какой порт использовать для подключения по умолчанию 22.
+
+# [ap:children]  children - при помощи чилдлена можно обеденять группы
+# prod_servers
+# test_servers
+# ap[0:7] - в [:] можно вписывать диапазод серверов 123456 итд
